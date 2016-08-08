@@ -1,0 +1,6 @@
+# app/config/config.yml
+framework:
+    profiler:
+        enabled: %kernel.debug%
+parameters:
+  kernel.secret: ""
