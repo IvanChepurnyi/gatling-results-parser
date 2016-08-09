@@ -29,11 +29,29 @@ class Configuration implements ConfigurationInterface
         }
 
         if (isset($configuration['filters'])) {
-            foreach ($configuration['filters'] as $filter => $matches) {
-                $this->filters[$filter] = [];
+            foreach ($configuration['filters'] as $filter => $info) {
 
-                foreach ($matches as $value => $match) {
-                    $this->filters[$filter][] = $value;
+                if (!isset($info['multiple'])) {
+                    $info['multiple'] = false;
+                }
+
+                if (!isset($info['selection'])) {
+                    if ($info['multiple']) {
+                        $info['selection'] = array_keys($info['options']);
+                    } else {
+                        $info['selection'] = key($info['options']);
+                    }
+                }
+
+                $this->filters[$filter] = [
+                    'label' => $info['label'],
+                    'multiple' => $info['multiple'],
+                    'selection' => $info['selection']
+                ];
+
+
+                foreach ($info['options'] as $value => $match) {
+                    $this->filters[$filter]['options'][] = $value;
                     if (!$match) {
                         $this->filterDefault[$filter] = $value;
                         continue;
@@ -74,10 +92,15 @@ class Configuration implements ConfigurationInterface
 
     public function findLegend($code)
     {
+        $matchedLegend = null;
         foreach ($this->legendRegexp as $regExp => $legend) {
             if (preg_match($regExp, $code)) {
-                return $legend;
+                 $matchedLegend = $legend;
             }
+        }
+
+        if ($matchedLegend) {
+            return $matchedLegend;
         }
 
         throw new InvalidLegendException();
@@ -89,10 +112,15 @@ class Configuration implements ConfigurationInterface
             throw new InvalidFilterException();
         }
 
+        $matchedFilter = null;
         foreach ($this->filterMatches[$filter] as $regExp => $value) {
             if (preg_match($regExp, $code)) {
-                return $value;
+                $matchedFilter = $value;
             }
+        }
+
+        if ($matchedFilter !== null) {
+            return $matchedFilter;
         }
 
         if (isset($this->filterDefault[$filter])) {

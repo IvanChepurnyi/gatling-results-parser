@@ -49,17 +49,28 @@ class ConfigurationSpec extends ObjectBehavior
             ],
             'filters' => [
                 'filter1' => [
-                    'value1' => '*-f1v1-',
-                    'value2' => '*-f1v2-'
+                    'label' => 'Filter 1',
+                    'options' => [
+                        'value1' => '*-f1v1-',
+                        'value2' => '*-f1v2-'
+                    ]
                 ],
                 'filter2' => [
-                    'value1' => '*-f2v1-',
-                    'value2' => '*-f2v2-'
+                    'label' => 'Filter 2',
+                    'multiple' => true,
+                    'options' => [
+                        'value1' => '*-f2v1-',
+                        'value2' => '*-f2v2-'
+                    ]
                 ],
                 'filter3' => [
-                    'value1' => '*-f3v1-',
-                    'value2' => '*-f3v2-',
-                    'value_default' => ''
+                    'label' => 'Filter 3',
+                    'selection' => 'value2',
+                    'options' => [
+                        'value1' => '*-f3v1-',
+                        'value2' => '*-f3v2-',
+                        'value_default' => ''
+                    ]
                 ]
             ],
             'pages' => [
@@ -89,9 +100,24 @@ class ConfigurationSpec extends ObjectBehavior
         $this->provideConfiguration();
 
         $this->getFilters()->shouldReturn([
-            'filter1' => ['value1', 'value2'],
-            'filter2' => ['value1', 'value2'],
-            'filter3' => ['value1', 'value2', 'value_default']
+            'filter1' => [
+                'label' => 'Filter 1',
+                'multiple' => false,
+                'selection' => 'value1',
+                'options' => ['value1', 'value2']
+            ],
+            'filter2' => [
+                'label' => 'Filter 2',
+                'multiple' => true,
+                'selection' => ['value1', 'value2'],
+                'options' => ['value1', 'value2']
+            ],
+            'filter3' => [
+                'label' => 'Filter 3',
+                'multiple' => false,
+                'selection' => 'value2',
+                'options' => ['value1', 'value2', 'value_default']
+            ]
         ]);
     }
 

@@ -65,17 +65,25 @@ class ReportGenerator
                 [
                     'dataCode' => 'response',
                     'label' => '#Page Response Times',
-                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above' => '1200ms']
+                    'axis' => [
+                        'Minimum Response Time',
+                        '50 percentile',
+                        '75 percentile',
+                        '95 percentile',
+                        '99 percentile',
+                        'Maximum Response Time',
+                        'Mean Response Time'
+                    ]
                 ],
                 [
                     'dataCode' => 'indicatorPercent',
                     'label' => '#Page Indicator Percent',
-                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above' => '1200ms']
+                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above 1200ms']
                 ],
                 [
                     'dataCode' => 'indicatorCount',
                     'label' => '#Page Indicator Count',
-                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above' => '1200ms']
+                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above 1200ms']
                 ]
             ]
         ];
@@ -87,7 +95,8 @@ class ReportGenerator
                 'code' => $report->getReportCode(),
                 'path' => $report->getReportPath(),
                 'legend' => $legend,
-                'color' => $this->config->getLegends()[$legend]
+                'color' => $this->config->getLegends()[$legend],
+                'position' => array_search($legend, array_keys($this->config->getLegends()))
             ];
 
             foreach (array_keys($this->config->getFilters()) as $filterCode) {
@@ -116,7 +125,7 @@ class ReportGenerator
                     ->fetchMeanResponseStat($mappedCodes[$pageCode]);
 
                 $opinionStat = $report->fetchOpinionStat($mappedCodes[$pageCode]);
-                $reportResult['pageReport']['response'][$pageCode] = $report->fetchResponseStat($mappedCodes[$pageCode]);
+                $reportResult['pageReport']['response'][$pageCode] = array_values($report->fetchResponseStat($mappedCodes[$pageCode]));
                 $reportResult['pageReport']['indicatorPercent'][$pageCode] = $opinionStat['percent'];
                 $reportResult['pageReport']['indicatorCount'][$pageCode] = $opinionStat['count'];
             }
