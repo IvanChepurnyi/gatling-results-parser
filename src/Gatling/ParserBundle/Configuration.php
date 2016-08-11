@@ -67,12 +67,27 @@ class Configuration implements ConfigurationInterface
 
     private function prepareRegexp($match)
     {
-        $placeholder = uniqid();
+        $placeholderMap = [
+            '*' => uniqid(),
+            '[d]' => uniqid(),
+            '[a]' => uniqid()
+        ];
+
+        $expressionMap = [
+            $placeholderMap['*'] => '.*',
+            $placeholderMap['[d]'] => '[0-9]+',
+            $placeholderMap['[a]'] => '[a-zA-Z]+g',
+        ];
+
         $match = str_replace(
-            $placeholder,
-            '.*',
+            array_keys($expressionMap),
+            array_values($expressionMap),
             preg_quote(
-                str_replace('*', $placeholder, $match),
+                str_replace(
+                    array_keys($placeholderMap),
+                    array_values($placeholderMap),
+                    $match
+                ),
                 '/'
             )
         );

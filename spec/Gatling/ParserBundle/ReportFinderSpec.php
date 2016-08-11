@@ -17,4 +17,11 @@ class ReportFinderSpec extends ObjectBehavior
     {
         $this->find()->shouldBeLike([new ReportReader(__DIR__  . '/fixture/sample-report')]);
     }
+
+    function it_returns_report_path_in_directory(ReportReader $report)
+    {
+        $report->getReportCode()->willReturn('one_two_three');
+
+        $this->reportPath($report)->shouldReturn(__DIR__  . '/fixture/one_two_three');
+    }
 }

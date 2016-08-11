@@ -34,4 +34,9 @@ class ReportFinder
 
         return $readers;
     }
+
+    public function reportPath(ReportReader $reportReader)
+    {
+        return $this->path . '/' . $reportReader->getReportCode();
+    }
 }
