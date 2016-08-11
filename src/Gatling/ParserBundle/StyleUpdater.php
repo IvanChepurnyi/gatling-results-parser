@@ -35,8 +35,8 @@ class StyleUpdater
     public function __construct(ReportFinder $finder, $stylePath, $resultPath)
     {
         $this->finder = $finder;
-        $this->stylePath = $stylePath;
-        $this->resultPath = $resultPath;
+        $this->stylePath = realpath($stylePath);
+        $this->resultPath = realpath($resultPath);
     }
 
     private function getStylePathFiles()
