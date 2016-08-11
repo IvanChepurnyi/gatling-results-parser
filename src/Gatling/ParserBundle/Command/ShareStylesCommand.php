@@ -26,7 +26,7 @@ class ShareStylesCommand extends Command
         $reportFinder = new ReportFinder($input->getArgument('path'));
         $styleUpdater = new StyleUpdater($reportFinder, $input->getArgument('stylePath'), $input->getArgument('path'));
 
-        $styleUpdater->removeSharedFiles();
+        $styleUpdater->removeSharedFiles(); 
         return 0;
     }
 }

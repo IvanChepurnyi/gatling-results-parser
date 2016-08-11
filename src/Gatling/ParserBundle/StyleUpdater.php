@@ -73,15 +73,30 @@ class StyleUpdater
     private function replaceFileContent($file, $replacementList)
     {
         $content = file_get_contents($file);
-        $content = str_replace(array_keys($replacementList), array_values($replacementList), $content);
+
+        $patterns = array_map(
+            function ($item) {
+                return '#([^/])' . preg_quote($item, '#') . '#i';
+            },
+            array_keys($replacementList)
+        );
+
+        $replacements = array_map(
+            function ($item) {
+                return '\\1' . $item;
+            },
+            array_values($replacementList)
+        );
+
+        $content = preg_replace($patterns, $replacements, $content);
         file_put_contents($file, $content);
         return $this;
     }
 
     private function extractPath($itemPath)
     {
-        $originalPath = substr($itemPath, strlen($this->stylePath));
-        $commonPath = substr($itemPath, 0, strlen($this->resultPath));
+        $originalPath = substr($itemPath, strlen($this->stylePath) + 1);
+        $commonPath = substr($itemPath, 0, strlen($this->resultPath) + 1);
         $targetPath = substr($itemPath, strlen($commonPath));
 
         $countOriginal = count(explode('/', $originalPath));
