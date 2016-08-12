@@ -39,7 +39,7 @@
       "version": {
          "label": "Magento Versions",
          "multiple": true,
-         "selection": ["1.9.2.4", "2.0.2", "2.1.0"],
+         "selection": ["1.9.2.4", "2.0.4", "2.1.0"],
          "options": {
             "1.9.2.4": "*magento192",
             "2.0.2": "magento202",
