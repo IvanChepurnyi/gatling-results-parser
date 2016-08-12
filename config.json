@@ -39,7 +39,7 @@
       "version": {
          "label": "Magento Versions",
          "multiple": true,
-         "selection": ["1.9.2.4", "2.0.4", "2.0.7", "2.1.0"],
+         "selection": ["1.9.2.4", "2.0.2", "2.1.0"],
          "options": {
             "1.9.2.4": "*magento192",
             "2.0.2": "magento202",
@@ -51,7 +51,7 @@
       "configuration": {
          "label": "Configuration",
          "multiple": true,
-         "selection": ["MageCore Original", "1.9.x Default", "2.x Default", "2.x No Ajax Reviews"],
+         "selection": ["MageCore Original", "1.9.x Oro Ajax", "2.x Default", "2.x No Ajax Reviews"],
          "options": {
             "1.9.x Oro Ajax": "magento1[d]oro-",
             "MageCore Original": "original-",
@@ -65,7 +65,7 @@
       "data_set": {
          "label": "Database Set",
          "multiple": true,
-         "selection": ["Default", "Original"],
+         "selection": ["Original"],
          "options": {
             "Default": "*-default-",
             "Large": "*-large-",
@@ -118,6 +118,7 @@
    },
    "page_map": {
       "checkout_onepage": "checkout_page",
+      "onepage_checkout": "checkout_page",
       "category_page": "category_page_default",
       "add_product_to_cart_configurable": "shopping_cart_add_configurable_product",
       "add_product_to_cart_simple": "shopping_cart_add_simple_product"

@@ -66,24 +66,24 @@ class ReportGenerator
                     'dataCode' => 'response',
                     'label' => '#Page Response Times',
                     'axis' => [
-                        'Minimum Response Time',
-                        '50 percentile',
-                        '75 percentile',
-                        '95 percentile',
-                        '99 percentile',
-                        'Maximum Response Time',
-                        'Mean Response Time'
+                        'Min',
+                        '50pct',
+                        '75pct',
+                        '95pct',
+                        '99pct',
+                        'Max',
+                        'Mean'
                     ]
                 ],
                 [
                     'dataCode' => 'indicatorPercent',
                     'label' => '#Page Indicator Percent',
-                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above 1200ms']
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms']
                 ],
                 [
                     'dataCode' => 'indicatorCount',
                     'label' => '#Page Indicator Count',
-                    'axis' => ['below 800ms', 'between 800ms and 1200ms', 'above 1200ms']
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms']
                 ]
             ]
         ];
