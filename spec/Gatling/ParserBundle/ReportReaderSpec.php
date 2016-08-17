@@ -67,6 +67,18 @@ class ReportReaderSpec extends ObjectBehavior
         ]);
     }
 
+    function it_returns_global_opinion_stats()
+    {
+        $this->fetchGlobalOpinionStat()->shouldReturn([
+            'percent' => [
+                99, 1, 0, 0
+            ],
+            'count' => [
+                10438, 79, 15, 0
+            ]
+        ]);
+    }
+
     function it_returns_response_time_stats_by_page_code()
     {
         $this->fetchResponseStat('homepage')->shouldReturn([

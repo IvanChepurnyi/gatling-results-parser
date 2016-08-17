@@ -101,6 +101,24 @@ class ReportReader
         ];
     }
 
+    public function fetchGlobalOpinionStat()
+    {
+        return [
+            'percent' => [
+                $this->stats['stats']['group1']['percentage'],
+                $this->stats['stats']['group2']['percentage'],
+                $this->stats['stats']['group3']['percentage'],
+                $this->stats['stats']['group4']['percentage'],
+            ],
+            'count' => [
+                $this->stats['stats']['group1']['count'],
+                $this->stats['stats']['group2']['count'],
+                $this->stats['stats']['group3']['count'],
+                $this->stats['stats']['group4']['count']
+            ]
+        ];
+    }
+
     public function fetchResponseStat($pageCode)
     {
         return [

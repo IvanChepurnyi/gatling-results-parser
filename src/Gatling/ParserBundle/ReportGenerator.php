@@ -59,6 +59,16 @@ class ReportGenerator
                     'dataCode' => 'response',
                     'label' => 'Mean Response Time per Page',
                     'axis' => array_values($commonPages)
+                ],
+                [
+                    'dataCode' => 'indicatorPercent',
+                    'label' => 'Global Indicator Percent',
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
+                ],
+                [
+                    'dataCode' => 'indicatorCount',
+                    'label' => 'Global Indicator Count',
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
                 ]
             ],
             'pageReport' => [
@@ -78,12 +88,12 @@ class ReportGenerator
                 [
                     'dataCode' => 'indicatorPercent',
                     'label' => '#Page Indicator Percent',
-                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms']
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
                 ],
                 [
                     'dataCode' => 'indicatorCount',
                     'label' => '#Page Indicator Count',
-                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms']
+                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
                 ]
             ]
         ];
@@ -114,6 +124,11 @@ class ReportGenerator
 
             $reportResult['aggregateReport']['requests'] = [];
             $reportResult['aggregateReport']['response'] = [];
+
+            $opinionStat = $report->fetchGlobalOpinionStat();
+            $reportResult['aggregateReport']['indicatorPercent'] = $opinionStat['percent'];
+            $reportResult['aggregateReport']['indicatorCount'] = $opinionStat['count'];
+
             $reportResult['pageReport']['response'] = [];
             $reportResult['pageReport']['indicatorPercent'] = [];
             $reportResult['pageReport']['indicatorCount'] = [];
@@ -125,7 +140,9 @@ class ReportGenerator
                     ->fetchMeanResponseStat($mappedCodes[$pageCode]);
 
                 $opinionStat = $report->fetchOpinionStat($mappedCodes[$pageCode]);
-                $reportResult['pageReport']['response'][$pageCode] = array_values($report->fetchResponseStat($mappedCodes[$pageCode]));
+                $reportResult['pageReport']['response'][$pageCode] = array_values(
+                    $report->fetchResponseStat($mappedCodes[$pageCode])
+                );
                 $reportResult['pageReport']['indicatorPercent'][$pageCode] = $opinionStat['percent'];
                 $reportResult['pageReport']['indicatorCount'][$pageCode] = $opinionStat['count'];
             }

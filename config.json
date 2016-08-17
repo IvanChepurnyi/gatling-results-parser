@@ -102,6 +102,19 @@
             "7.0": "",
             "5.6": "*-php56-"
          }
+      },
+      "innodb": {
+         "label": "InnoDB",
+         "multiple": true,
+         "selection": ["1G", "N/A"],
+         "options": {
+            "256M": "*-innodb256m-",
+            "512M": "*-innodb512m-",
+            "1G": "*-innodb1g-",
+            "4G": "*-innodb4g-",
+            "8G": "*-innodb8g-",
+            "N/A": ""
+         }
       }
    },
    "pages": {
