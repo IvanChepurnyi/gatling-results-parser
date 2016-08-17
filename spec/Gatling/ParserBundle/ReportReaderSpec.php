@@ -25,10 +25,10 @@ class ReportReaderSpec extends ObjectBehavior
         $this->shouldThrow(new InvalidReportDirectoryException('Missing report file'))->duringInstantiation();
     }
 
-    function it_when_report_contains_errors_throwsInvalidReportDirectoryException()
+    function it_when_report_contains_errors_it_should_wrok_fine()
     {
         $this->beConstructedWith(__DIR__  . '/fixture/error-path');
-        $this->shouldThrow(new InvalidReportDirectoryException('Report contains at least one failed request'))->duringInstantiation();
+        $this->getReportPath()->shouldReturn('error-path/index.html');
     }
 
     function it_returns_report_path()
@@ -59,10 +59,10 @@ class ReportReaderSpec extends ObjectBehavior
     {
         $this->fetchOpinionStat('homepage')->shouldReturn([
             'percent' => [
-                100, 0, 0
+                100, 0, 0, 0
             ],
             'count' => [
-                973, 1, 0
+                973, 1, 0, 0
             ]
         ]);
     }

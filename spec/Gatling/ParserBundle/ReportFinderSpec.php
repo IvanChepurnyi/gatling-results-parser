@@ -15,7 +15,7 @@ class ReportFinderSpec extends ObjectBehavior
 
     function it_returns_list_of_valid_reports_in_directory()
     {
-        $this->find()->shouldBeLike([new ReportReader(__DIR__  . '/fixture/sample-report')]);
+        $this->find()->shouldBeLike([new ReportReader(__DIR__  . '/fixture/error-path'), new ReportReader(__DIR__  . '/fixture/sample-report')]);
     }
 
     function it_returns_report_path_in_directory(ReportReader $report)

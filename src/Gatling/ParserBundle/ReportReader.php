@@ -50,10 +50,6 @@ class ReportReader
 
         $this->stats = json_decode(file_get_contents($this->path . '/js/stats.json'), true);
 
-        if (!empty($this->stats['stats']['numberOfRequests']['ko'])) {
-            throw new InvalidReportDirectoryException('Report contains at least one failed request');
-        }
-
         foreach ($this->stats['contents'] as $content) {
             $this->pageStats[$this->replacePageName($content['name'])] = $content['stats'];
             $this->pages[$this->replacePageName($content['name'])] = $content['name'];
@@ -93,12 +89,14 @@ class ReportReader
             'percent' => [
                 $this->fetchPageStat($pageCode, 'group1')['percentage'],
                 $this->fetchPageStat($pageCode, 'group2')['percentage'],
-                $this->fetchPageStat($pageCode, 'group3')['percentage']
+                $this->fetchPageStat($pageCode, 'group3')['percentage'],
+                $this->fetchPageStat($pageCode, 'group4')['percentage'],
             ],
             'count' => [
                 $this->fetchPageStat($pageCode, 'group1')['count'],
                 $this->fetchPageStat($pageCode, 'group2')['count'],
-                $this->fetchPageStat($pageCode, 'group3')['count']
+                $this->fetchPageStat($pageCode, 'group3')['count'],
+                $this->fetchPageStat($pageCode, 'group4')['count']
             ]
         ];
     }
