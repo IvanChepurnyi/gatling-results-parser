@@ -1,0 +1,131 @@
+BEGIN:1471469251:load-test-magento1oro-bootstrap
+Category Products index was rebuilt successfully in 00:00:07
+Stock Status index was rebuilt successfully in 00:00:08
+Product Prices index was rebuilt successfully in 00:01:28
+Product Attributes index was rebuilt successfully in 00:02:54
+Product Flat Data index was rebuilt successfully in 00:00:45
+END:1471469251:load-test-magento1oro-bootstrap:1471469577
+BEGIN:1471469683:load-test-magento1-bootstrap
+Category Products index was rebuilt successfully in 00:00:07
+Stock Status index was rebuilt successfully in 00:00:07
+Product Prices index was rebuilt successfully in 00:01:32
+Product Attributes index was rebuilt successfully in 00:02:53
+Product Flat Data index was rebuilt successfully in 00:00:45
+END:1471469683:load-test-magento1-bootstrap:1471470009
+BEGIN:1471470876:load-test-magento2-bootstrap
+Category Products index has been rebuilt successfully in 00:00:03
+Product Categories index has been rebuilt successfully in 00:00:02
+Stock index has been rebuilt successfully in 00:00:04
+Product Price index has been rebuilt successfully in 00:01:05
+Product EAV index has been rebuilt successfully in 00:02:54
+Product Flat Data index has been rebuilt successfully in 00:00:25
+END:1471470876:load-test-magento2-bootstrap:1471471160
+BEGIN:1471472676:load-test-magento2-bootstrap
+Category Products index has been rebuilt successfully in 00:00:03
+Product Categories index has been rebuilt successfully in 00:00:02
+Stock index has been rebuilt successfully in 00:00:07
+Product Price index has been rebuilt successfully in 00:01:43
+Product EAV index has been rebuilt successfully in 00:03:25
+END:1471472676:load-test-magento2-bootstrap:1471473012
+PDOStatement::execute(): MySQL server has gone away
+BEGIN:1471473694:load-test-magento2-bootstrap
+Category Products index has been rebuilt successfully in 00:00:02
+Product Categories index has been rebuilt successfully in 00:00:02
+Stock index has been rebuilt successfully in 00:00:07
+END:1471473694:load-test-magento2-bootstrap:1471473718
+Product Price indexer process unknown error:
+SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
+BEGIN:1471473828:load-test-magento1oro-bootstrap
+Category Products index was rebuilt successfully in 00:00:11
+Stock Status index was rebuilt successfully in 00:00:10
+Product Prices index was rebuilt successfully in 00:01:37
+Product Attributes index was rebuilt successfully in 00:03:33
+END:1471473828:load-test-magento1oro-bootstrap:1471474165
+Product Flat Data index process unknown error:
+PDOException: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /data/web/load-test-magento1oro-bootstrap/magento/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT RELEASE_...', Array)
+#5 /data/web/load-test-magento1oro-bootstrap/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT RELEASE_...', Array)
+#6 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Resource/Helper/Mysql4.php(72): Varien_Db_Adapter_Pdo_Mysql->query('SELECT RELEASE_...', Array)
+#7 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock/Storage/Db.php(84): Mage_Index_Model_Resource_Helper_Mysql4->releaseLock('magento.index_p...')
+#8 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(208): Mage_Index_Model_Lock_Storage_Db->releaseLock('magento.index_p...')
+#9 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(181): Mage_Index_Model_Lock->_releaseLockDb('index_process_4')
+#10 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(469): Mage_Index_Model_Lock->releaseLock('index_process_4', NULL)
+#11 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(223): Mage_Index_Model_Process->unlock()
+#12 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(260): Mage_Index_Model_Process->reindexAll()
+#13 /data/web/load-test-magento1oro-bootstrap/magento/shell/indexer.php(168): Mage_Index_Model_Process->reindexEverything()
+#14 /data/web/load-test-magento1oro-bootstrap/magento/shell/indexer.php(216): Mage_Shell_Compiler->run()
+#15 {main}
+
+Next Zend_Db_Statement_Exception: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away, query was: SELECT RELEASE_LOCK(?); in /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php:235
+Stack trace:
+#0 /data/web/load-test-magento1oro-bootstrap/magento/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#2 /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#3 /data/web/load-test-magento1oro-bootstrap/magento/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT RELEASE_...', Array)
+#4 /data/web/load-test-magento1oro-bootstrap/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT RELEASE_...', Array)
+#5 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Resource/Helper/Mysql4.php(72): Varien_Db_Adapter_Pdo_Mysql->query('SELECT RELEASE_...', Array)
+#6 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock/Storage/Db.php(84): Mage_Index_Model_Resource_Helper_Mysql4->releaseLock('magento.index_p...')
+#7 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(208): Mage_Index_Model_Lock_Storage_Db->releaseLock('magento.index_p...')
+#8 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(181): Mage_Index_Model_Lock->_releaseLockDb('index_process_4')
+#9 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(469): Mage_Index_Model_Lock->releaseLock('index_process_4', NULL)
+#10 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(223): Mage_Index_Model_Process->unlock()
+#11 /data/web/load-test-magento1oro-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(260): Mage_Index_Model_Process->reindexAll()
+#12 /data/web/load-test-magento1oro-bootstrap/magento/shell/indexer.php(168): Mage_Index_Model_Process->reindexEverything()
+#13 /data/web/load-test-magento1oro-bootstrap/magento/shell/indexer.php(216): Mage_Shell_Compiler->run()
+#14 {main}
+BEGIN:1471474265:load-test-magento1-bootstrap
+Category Products index was rebuilt successfully in 00:00:15
+Stock Status index was rebuilt successfully in 00:00:08
+Product Prices index was rebuilt successfully in 00:01:42
+Product Attributes index was rebuilt successfully in 00:03:42
+END:1471474265:load-test-magento1-bootstrap:1471474616
+Product Flat Data index process unknown error:
+PDOException: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /data/web/load-test-magento1-bootstrap/magento/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT RELEASE_...', Array)
+#5 /data/web/load-test-magento1-bootstrap/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT RELEASE_...', Array)
+#6 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Resource/Helper/Mysql4.php(72): Varien_Db_Adapter_Pdo_Mysql->query('SELECT RELEASE_...', Array)
+#7 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock/Storage/Db.php(84): Mage_Index_Model_Resource_Helper_Mysql4->releaseLock('magento.index_p...')
+#8 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(208): Mage_Index_Model_Lock_Storage_Db->releaseLock('magento.index_p...')
+#9 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(181): Mage_Index_Model_Lock->_releaseLockDb('index_process_4')
+#10 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(469): Mage_Index_Model_Lock->releaseLock('index_process_4', NULL)
+#11 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(223): Mage_Index_Model_Process->unlock()
+#12 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(260): Mage_Index_Model_Process->reindexAll()
+#13 /data/web/load-test-magento1-bootstrap/magento/shell/indexer.php(168): Mage_Index_Model_Process->reindexEverything()
+#14 /data/web/load-test-magento1-bootstrap/magento/shell/indexer.php(216): Mage_Shell_Compiler->run()
+#15 {main}
+
+Next Zend_Db_Statement_Exception: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away, query was: SELECT RELEASE_LOCK(?); in /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Statement/Pdo.php:235
+Stack trace:
+#0 /data/web/load-test-magento1-bootstrap/magento/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#1 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#2 /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#3 /data/web/load-test-magento1-bootstrap/magento/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT RELEASE_...', Array)
+#4 /data/web/load-test-magento1-bootstrap/magento/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT RELEASE_...', Array)
+#5 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Resource/Helper/Mysql4.php(72): Varien_Db_Adapter_Pdo_Mysql->query('SELECT RELEASE_...', Array)
+#6 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock/Storage/Db.php(84): Mage_Index_Model_Resource_Helper_Mysql4->releaseLock('magento.index_p...')
+#7 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(208): Mage_Index_Model_Lock_Storage_Db->releaseLock('magento.index_p...')
+#8 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Lock.php(181): Mage_Index_Model_Lock->_releaseLockDb('index_process_4')
+#9 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(469): Mage_Index_Model_Lock->releaseLock('index_process_4', NULL)
+#10 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(223): Mage_Index_Model_Process->unlock()
+#11 /data/web/load-test-magento1-bootstrap/magento/app/code/core/Mage/Index/Model/Process.php(260): Mage_Index_Model_Process->reindexAll()
+#12 /data/web/load-test-magento1-bootstrap/magento/shell/indexer.php(168): Mage_Index_Model_Process->reindexEverything()
+#13 /data/web/load-test-magento1-bootstrap/magento/shell/indexer.php(216): Mage_Shell_Compiler->run()
+#14 {main}
+BEGIN:1471474876:load-test-magento2-bootstrap
+Category Products index has been rebuilt successfully in 00:00:07
+Product Categories index has been rebuilt successfully in 00:00:07
+Stock index has been rebuilt successfully in 00:00:04
+Product Price index has been rebuilt successfully in 00:01:09
+Product EAV index has been rebuilt successfully in 00:03:39
+Product Flat Data index has been rebuilt successfully in 00:00:19
+END:1471474876:load-test-magento2-bootstrap:1471475211

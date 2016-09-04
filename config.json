@@ -3,55 +3,81 @@
       "1.9.2.4 MageCore": "original-magento192oro-",
       "1.9.2.4 Default": "magento192-",
       "1.9.2.4 ORO": "magento192oro-",
-      "2.0.4 MageCore": "original-magento204-",
+      "2.0.2 MageCore": "original-magento202-",
       "2.0.2 Default": "magento202-",
       "2.0.4 Default": "magento204-",
       "2.0.7 Default": "magento207-",
+      "2.0.8 Default": "magento208-",
+      "2.0.9 Default": "magento209-",
       "2.1.0 Default": "magento210-",
-      "2.0.2 No Reviews": "magento202-*-d[d]-opt-",
-      "2.0.4 No Reviews": "magento204-*-d[d]-opt-",
-      "2.0.7 No Reviews": "magento207-*-d[d]-opt-",
-      "2.1.0 No Reviews": "magento210-*-d[d]-opt-",
-      "2.0.2 OptConf": "magento202-*-conf-opt-",
-      "2.0.4 OptConf": "magento204-*-conf-opt-",
-      "2.0.7 OptConf": "magento207-*-conf-opt-",
-      "2.1.0 OptConf": "magento210-*-conf-opt-"
+      "2.0.2 Less Ajax": "magento202-*-d[d]-opt-",
+      "2.0.4 Less Ajax": "magento204-*-d[d]-opt-",
+      "2.0.7 Less Ajax": "magento207-*-d[d]-opt-",
+      "2.0.8 Less Ajax": "magento208-*-d[d]-opt-",
+      "2.0.9 Less Ajax": "magento209-*-d[d]-opt-",
+      "2.1.0 Less Ajax": "magento210-*-d[d]-opt-",
+      "2.0.2 Disabled Modules": "magento202-*-conf-opt-",
+      "2.0.4 Disabled Modules": "magento204-*-conf-opt-",
+      "2.0.7 Disabled Modules": "magento207-*-conf-opt-",
+      "2.0.8 Disabled Modules": "magento208-*-conf-opt-",
+      "2.0.9 Disabled Modules": "magento209-*-conf-opt-",
+      "2.1.0 Disabled Modules": "magento210-*-conf-opt-",
+      "2.0.2 Fixed": "magento202-*-fixed-opt-",
+      "2.0.4 Fixed": "magento204-*-fixed-opt-",
+      "2.0.7 Fixed": "magento207-*-fixed-opt-",
+      "2.0.8 Fixed": "magento208-*-fixed-opt-",
+      "2.0.9 Fixed": "magento209-*-fixed-opt-",
+      "2.1.0 Fixed": "magento210-*-fixed-opt-"
    },
-   "legend-color": {
-      "1.9.2.4 MageCore": "pink",
-      "2.0.4 MageCore": "red",
-      "1.9.2.4 Default": "rgb(253, 174, 107)",
-      "1.9.2.4 ORO": "rgb(253, 208, 162)",
-      "2.0.2 Default": "rgb(252, 141, 89)",
-      "2.0.4 Default": "rgb(239, 101, 72)",
-      "2.0.7 Default": "rgb(215, 48, 31)",
-      "2.1.0 Default": "rgb(153, 0, 0)",
-      "2.0.2 No Reviews": "rgb(251, 141, 60)",
-      "2.0.4 No Reviews": "rgb(241, 105, 19)",
-      "2.0.7 No Reviews": "rgb(217, 72, 1)",
-      "2.1.0 No Reviews": "rgb(140, 45, 4)",
-      "2.0.2 OptConf": "rgb(158, 202, 225)",
-      "2.0.4 OptConf": "rgb(107, 174, 214)",
-      "2.0.7 OptConf": "rgb(66, 146, 198)",
-      "2.1.0 OptConf": "rgb(33, 113, 181)"
+   "legend-description": {
+      "1.9.2.4 MageCore": "Original MageCore Inc. CE 1.9.2.4 Benchmark",
+      "2.0.2 MageCore": "Original MageCore Inc. CE 2.0.2 Benchmark",
+      "1.9.2.4 Default": "Default Behaviour CE 1.9.2.4 Behaviour with EcomDev_Varnish",
+      "1.9.2.4 ORO": "Custom Behaviour CE  1.9.2.4 with Phoenix VarnishCache and Oro_Ajax module",
+      "2.0.2 Default": "Default CE 2.0.2",
+      "2.0.4 Default": "Default CE 2.0.4",
+      "2.0.7 Default": "Default CE 2.0.7",
+      "2.0.8 Default": "Default CE 2.0.8",
+      "2.0.9 Default": "Default CE 2.0.9",
+      "2.1.0 Default": "Default CE 2.1.0",
+      "2.0.2 Less Ajax": "Default CE 2.0.2 with no calls to ajax review block",
+      "2.0.4 Less Ajax": "Default CE 2.0.4 with no calls to ajax review block",
+      "2.0.7 Less Ajax": "Default CE 2.0.7 with no calls to ajax review block",
+      "2.0.8 Less Ajax": "Default CE 2.0.8 with no calls to ajax review block",
+      "2.0.9 Less Ajax": "Default CE 2.0.9 with no calls to ajax review block",
+      "2.1.0 Less Ajax": "Default CE 2.1.0 with no calls to ajax review block",
+      "2.0.2 Disabled Modules": "Default CE 2.0.2 with disabled modules and no calls to ajax review block",
+      "2.0.4 Disabled Modules": "Default CE 2.0.4 with disabled modules and no calls to ajax review block",
+      "2.0.7 Disabled Modules": "Default CE 2.0.7 with disabled modules and no calls to ajax review block",
+      "2.0.8 Disabled Modules": "Default CE 2.0.8 with disabled modules and no calls to ajax review block",
+      "2.0.9 Disabled Modules": "Default CE 2.0.9 with disabled modules and no calls to ajax review block",
+      "2.1.0 Disabled Modules": "Default CE 2.1.0 with disabled modules and no calls to ajax review block",
+      "2.0.2 Fixed": "Default CE 2.0.2 with fixed PageCache and no calls to ajax review block",
+      "2.0.4 Fixed": "Default CE 2.0.4 with fixed PageCache and no calls to ajax review block",
+      "2.0.7 Fixed": "Default CE 2.0.7 with fixed PageCache and no calls to ajax review block",
+      "2.0.8 Fixed": "Default CE 2.0.8 with fixed PageCache and no calls to ajax review block",
+      "2.0.9 Fixed": "Default CE 2.0.9 with fixed PageCache and no calls to ajax review block",
+      "2.1.0 Fixed": "Default CE 2.1.0 with fixed PageCache and no calls to ajax review block"
    },
    "filters": {
       "version": {
          "label": "Magento Versions",
          "multiple": true,
-         "selection": ["1.9.2.4", "2.0.4", "2.1.0"],
+         "selection": ["1.9.2.4", "2.0.2"],
          "options": {
             "1.9.2.4": "*magento192",
-            "2.0.2": "magento202",
-            "2.0.4": "*magento204",
+            "2.0.2": "*magento202",
+            "2.0.4": "magento204",
             "2.0.7": "magento207",
+            "2.0.8": "magento208",
+            "2.0.9": "magento209",
             "2.1.0": "magento210"
          }
       },
       "configuration": {
          "label": "Configuration",
          "multiple": true,
-         "selection": ["MageCore Original", "1.9.x Oro Ajax", "2.x Default", "2.x No Ajax Reviews"],
+         "selection": ["MageCore Original", "1.9.x Oro Ajax", "2.x Default", "2.x Fixed"],
          "options": {
             "1.9.x Oro Ajax": "magento1[d]oro-",
             "MageCore Original": "original-",
@@ -59,7 +85,8 @@
             "1.9.x Optimized": "magento1[d]opt-",
             "2.x Default": "magento2[d]-",
             "2.x No Ajax Reviews": "magento2[d]-*-d[d]-opt-",
-            "2.x Optimized": "magento2[d]-*-conf-opt-*"
+            "2.x Disabled Modules": "magento2[d]-*-conf-opt-*",
+            "2.x Fixed": "magento2[d]-*-fixed-opt-*"
          }
       },
       "data_set": {
@@ -106,7 +133,7 @@
       "innodb": {
          "label": "InnoDB",
          "multiple": true,
-         "selection": ["1G", "N/A"],
+         "selection": ["512M", "N/A"],
          "options": {
             "256M": "*-innodb256m-",
             "512M": "*-innodb512m-",
@@ -114,6 +141,15 @@
             "4G": "*-innodb4g-",
             "8G": "*-innodb8g-",
             "N/A": ""
+         }
+      },
+      "pressure": {
+         "label": "Under Pressure",
+         "multiple": true,
+         "selection": ["No"],
+         "options": {
+            "Yes": "*-pressure-",
+            "No": ""
          }
       }
    },

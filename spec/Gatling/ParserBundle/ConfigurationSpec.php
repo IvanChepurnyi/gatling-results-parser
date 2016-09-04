@@ -42,7 +42,7 @@ class ConfigurationSpec extends ObjectBehavior
                 'Legend 1 Any' => '*-legend1-',
                 'Legend 2' => 'legend2-'
             ],
-            'legend-color' => [
+            'legend-description' => [
                 'Legend 1' => 'red',
                 'Legend 1 Any' => 'blue',
                 'Legend 2' => 'yellow'

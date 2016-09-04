@@ -22,7 +22,7 @@ interface ConfigurationInterface
     /**
      * Returns list of legends
      *
-     * Key is legend name, value is a legend color
+     * Key is legend name, value is a legend description
      *
      * @return string[]
      */

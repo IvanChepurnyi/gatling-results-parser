@@ -36,6 +36,31 @@ class ReportReaderSpec extends ObjectBehavior
         $this->getReportPath()->shouldReturn('sample-report/index.html');
     }
 
+    function it_returns_simulation_log_path()
+    {
+        $this->getSimulationPath()->shouldReturn(__DIR__ . '/fixture/sample-report/simulation.log');
+    }
+
+    function it_returns_system_usage_path()
+    {
+        $this->getSystemUsagePath()->shouldReturn(__DIR__ . '/fixture/sample-report/usage.csv');
+    }
+
+    function it_returns_pressure_path()
+    {
+        $this->getPressurePath()->shouldReturn(__DIR__ . '/fixture/sample-report/pressure.csv');
+    }
+
+    function it_returns_info_path()
+    {
+        $this->getInfoPath()->shouldReturn(__DIR__ . '/fixture/sample-report/info.json');
+    }
+
+    function it_returns_info_url()
+    {
+        $this->getInfoUrl()->shouldReturn('sample-report/info.json');
+    }
+
     function it_returns_list_of_tested_pages()
     {
         $this->getPages()->shouldReturn([
@@ -47,12 +72,12 @@ class ReportReaderSpec extends ObjectBehavior
 
     function it_returns_number_of_page_requests_by_page_code()
     {
-        $this->fetchNumberOfPageRequestsStat('homepage')->shouldReturn(974);
+        $this->fetchNumberOfPageRequestsStat('homepage')->shouldReturn([974, 0]);
     }
 
     function it_returns_mean_response_time_by_page_code()
     {
-        $this->fetchMeanResponseStat('homepage')->shouldReturn(3);
+        $this->fetchMeanResponseStat('homepage')->shouldReturn([3, 0]);
     }
 
     function it_returns_opnion_stats_by_page_code()
@@ -82,13 +107,13 @@ class ReportReaderSpec extends ObjectBehavior
     function it_returns_response_time_stats_by_page_code()
     {
         $this->fetchResponseStat('homepage')->shouldReturn([
-            'min' => 1,
-            'p50' => 2,
-            'p75' => 3,
-            'p95' => 6,
-            'p99' => 12,
-            'max' => 946,
-            'mean' => 3
+            'min' => [1, 0],
+            'p50' => [2, 0],
+            'p75' => [3, 0],
+            'p95' => [6, 0],
+            'p99' => [12, 0],
+            'max' => [946, 0],
+            'mean' => [3, 0]
         ]);
     }
 
@@ -96,4 +121,10 @@ class ReportReaderSpec extends ObjectBehavior
     {
         $this->getReportCode()->shouldReturn('sample-report');
     }
+
+    function it_returns_page_request_count()
+    {
+        $this->getReportCode()->shouldReturn('sample-report');
+    }
+
 }

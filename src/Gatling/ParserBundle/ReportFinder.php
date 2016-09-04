@@ -16,6 +16,9 @@ class ReportFinder
         $this->path = $path;
     }
 
+    /**
+     * @return ReportReader[]
+     */
     public function find()
     {
         $readers = [];

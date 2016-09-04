@@ -20,8 +20,8 @@ class Configuration implements ConfigurationInterface
     {
         if (isset($configuration['legend-match'])) {
             foreach ($configuration['legend-match'] as $legend => $match) {
-                $this->legends[$legend] = isset($configuration['legend-color'][$legend])
-                                            ? $configuration['legend-color'][$legend]
+                $this->legends[$legend] = isset($configuration['legend-description'][$legend])
+                                            ? $configuration['legend-description'][$legend]
                                             : "";
 
                 $this->legendRegexp[$this->prepareRegexp($match)] = $legend;
