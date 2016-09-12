@@ -25,6 +25,11 @@ class SimulationParser
      */
     private $simulationEndTime;
 
+    /**
+     * @var int
+     */
+    private $typeColumn;
+
     public function __construct($path)
     {
         $this->file = new \SplFileObject($path, 'r+');

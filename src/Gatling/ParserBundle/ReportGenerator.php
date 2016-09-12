@@ -43,20 +43,7 @@ class ReportGenerator
             $uniquePages += array_flip($pageNames);
         }
 
-        $lineScales = [
-            'xAxes' => [
-                [
-                    'type' => 'linear',
-                    'position' => 'bottom',
-                    'min' => 0,
-                    'scaleLabel' => ['labelString' => 'Test duration (s)']
-                ]
-            ],
-            'yAxes' => [
-                ['id' => 'first', 'position' => 'left', 'type' => 'linear'],
-                ['id' => 'second', 'position' => 'right', 'type' => 'linear']
-            ]
-        ];
+        $lineScales = $this->getLineScales();
 
         $result = [
             'legends' => $this->config->getLegends(),
@@ -110,16 +97,6 @@ class ReportGenerator
                         'Max',
                         'Mean'
                     ]
-                ],
-                [
-                    'dataCode' => 'indicatorPercent',
-                    'label' => '#Page Indicator Percent',
-                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
-                ],
-                [
-                    'dataCode' => 'indicatorCount',
-                    'label' => '#Page Indicator Count',
-                    'axis' => ['<800ms', '>800ms <1200ms', '>1200ms', 'Failed']
                 ]
             ],
             'systemReport' => [
@@ -217,18 +194,14 @@ class ReportGenerator
                 $reportResult['aggregateReport']['response_ok'][] = $response[0];
                 $reportResult['aggregateReport']['response_ko'][] = $response[1];
 
-                $opinionStat = $report->fetchOpinionStat($mappedCodes[$pageCode]);
-
                 $responseStat = $report->fetchResponseStat($mappedCodes[$pageCode]);
                 $reportResult['pageReport']['response_ok'][$pageCode] = $this->extractOkValues($responseStat);
                 $reportResult['pageReport']['response_ko'][$pageCode] = $this->extractKoValues($responseStat);
 
-                $reportResult['pageReport']['indicatorPercent'][$pageCode] = $opinionStat['percent'];
-                $reportResult['pageReport']['indicatorCount'][$pageCode] = $opinionStat['count'];
             }
 
-            $reportResult += $this->fetchTimelineReports($report, $uniquePages);
 
+            $reportResult += $this->fetchTimelineReports($report, $uniquePages);
             file_put_contents($report->getInfoPath(), json_encode($reportResult));
         }
 
@@ -255,13 +228,19 @@ class ReportGenerator
 
     private function fetchTimelineReports(ReportReader $report, $uniquePages)
     {
-        if (!is_file($report->getSimulationPath())) {
+        $simulationPath = $report->getSimulationPath();
+
+        if (!is_file($simulationPath)) {
             return [];
+        }
+
+        if (is_file($simulationPath . '.new')) {
+            $simulationPath .= '.new';
         }
 
         $result = [];
 
-        $simulation = new SimulationParser($report->getSimulationPath());
+        $simulation = new SimulationParser($simulationPath);
 
         $timelineDistributor = new TimelineDistributor($simulation->getSimulationStartTime(), 1);
 
@@ -452,5 +431,28 @@ class ReportGenerator
             $index ++;
         }
         return $indexDataSets;
+    }
+
+    /**
+     *
+     * @return array
+     */
+    private function getLineScales()
+    {
+        $lineScales = [
+            'xAxes' => [
+                [
+                    'type' => 'linear',
+                    'position' => 'bottom',
+                    'min' => 0,
+                    'scaleLabel' => ['labelString' => 'Test duration (s)']
+                ]
+            ],
+            'yAxes' => [
+                ['id' => 'first', 'position' => 'left', 'type' => 'linear'],
+                ['id' => 'second', 'position' => 'right', 'type' => 'linear']
+            ]
+        ];
+        return $lineScales;
     }
 }
